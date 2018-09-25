@@ -6,7 +6,8 @@ library(plotrix)
 options(stringsAsFactors = F)
 genome <- read.table('geneOverlap_bg_tair10_genes')
 
-geneListFiles <- c('geneList1', 'geneList2', 'geneList3', 'geneList4')
+geneListFiles <- commandArgs(T)
+#geneListFiles <- c('geneList1', 'geneList2', 'geneList3', 'geneList4')
 #geneListFiles <- c('geneList1', 'geneList2', 'geneList3')
 #geneListFiles <- c('geneList1', 'geneList2')
 
