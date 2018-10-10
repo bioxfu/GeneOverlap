@@ -15,7 +15,7 @@ gene_lst <- list()
 for (i in 1:length(geneListFiles)) {
   gene_lst[[i]] <- read.table(geneListFiles[i])$V1 %>% unique()
 }
-names(gene_lst) <- geneListFiles
+names(gene_lst) <- sub('.+\\/', '', geneListFiles)
 
 mat <- NULL
 for (i in 1:(length(gene_lst)-1)) {
@@ -28,7 +28,7 @@ for (i in 1:(length(gene_lst)-1)) {
 }
 colnames(mat) <- c('List1', 'List2', 'Number', 'P-value')
 
-pdf('gene_overlap.pdf', wid=10)
+pdf(paste0('gene_overlap_', paste0(names(gene_lst), collapse = '_'), '.pdf'), wid=10)
 layout(matrix(c(1,2),nrow=1), wid=c(2,1))
 par(mar=c(2,2,2,2))
 par(xpd=T)
